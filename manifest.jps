@@ -1,0 +1,17 @@
+type: install
+name: NextCloud Standalone Kit
+version: 1.7
+id: nextcloud
+
+nodes:
+  - image: nextcloud
+    cloudlets: 16
+    diskLimit: 50G
+
+  - nodeType: mariadb10
+    cloudlets: 16
+    diskLimit: 20G
+    
+  - nodeType: nginx
+    cloudlets: 16
+    diskLimit: 20G
