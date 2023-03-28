@@ -10,9 +10,7 @@ nodes:
     diskLimit: 50G
 
   - nodeType: mariadb10
+    nodeGroup: cp
     cloudlets: 16
     diskLimit: 20G
     
-  - nodeType: nginx
-    cloudlets: 16
-    diskLimit: 20G
