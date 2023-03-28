@@ -7,6 +7,7 @@ globals:
   DB_ADMIN_PASS: ${fn.password(10)}
   NEXTCLOUD_ADMIN_USER: kris
   NEXTCLOUD_ADMIN_PASSWORD: ${fn.password(10)}
+  NEXTCLOUD_DOMAIN: ${env.domain}
   
 nodes:
   - image: nextcloud
@@ -16,7 +17,7 @@ nodes:
     env:
       NEXTCLOUD_ADMIN_USER: ${globals.NEXTCLOUD_ADMIN_USER}
       NEXTCLOUD_ADMIN_PASSWORD: ${globals.NEXTCLOUD_ADMIN_PASSWORD}
-      NEXTCLOUD_TRUSTED_DOMAINS: host ${env.domain}
+      NEXTCLOUD_TRUSTED_DOMAINS: host ${globals.NEXTCLOUD_DOMAIN}
       MYSQL_PASSWORD: ${globals.DB_ADMIN_PASS}
       MYSQL_DATABASE: nc
       MYSQL_USER: nc
