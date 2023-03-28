@@ -17,6 +17,7 @@ nodes:
       MYSQL_USER: nc
       MYSQL_HOST: sqldb
   - nodeType: mariadb10
+    nodeGroup: sqldb
     cloudlets: 16
     diskLimit: 20G
   - nodeType: nginx
