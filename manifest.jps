@@ -12,3 +12,6 @@ nodes:
     nodeGroup: cp
     cloudlets: 16
     diskLimit: 20G
+  - nodeType: nginx
+     cloudlets: 16
+     diskLimit: 20G
