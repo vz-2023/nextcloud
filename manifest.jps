@@ -7,7 +7,7 @@ ssl: true
 nodes:
   - image: nextcloud
     nodeGroup: cp
-        cloudlets: 16
+    cloudlets: 16
     diskLimit: 50G
 
   - nodeType: mariadb10
