@@ -6,6 +6,7 @@ id: nextcloud
 nodes:
   - image: nextcloud
     nodeGroup: cp
+    ssl: true
     cloudlets: 16
     diskLimit: 50G
 
