@@ -5,10 +5,9 @@ id: nextcloud
 
 nodes:
   - image: nextcloud
+    nodeGroup: cp
     cloudlets: 16
     diskLimit: 50G
-    env:
-      JELASTIC_EXPOSE: 80:80
 
   - nodeType: mariadb10
     cloudlets: 16
