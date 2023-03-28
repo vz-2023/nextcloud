@@ -2,12 +2,12 @@ type: install
 name: NextCloud Standalone Kit
 version: 1.7
 id: nextcloud
+ssl: true
 
 nodes:
   - image: nextcloud
     nodeGroup: cp
-    ssl: true
-    cloudlets: 16
+        cloudlets: 16
     diskLimit: 50G
 
   - nodeType: mariadb10
