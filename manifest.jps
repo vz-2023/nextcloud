@@ -3,14 +3,27 @@ name: NextCloud Standalone Kit
 version: 1.7
 id: nextcloud
 ssl: true
+globals:
+  DB_ADMIN_PASS: ${fn.password(10)}
+  
 nodes:
   - image: nextcloud
     nodeGroup: cp
     cloudlets: 16
     diskLimit: 50G
+    env:
+      MYSQL_PASSWORD: ${globals.DB_ADMIN_PASS}
+      MYSQL_DATABASE: nc
+      MYSQL_USER: nc
+      MYSQL_HOST: sqldb
   - nodeType: mariadb10
     cloudlets: 16
     diskLimit: 20G
   - nodeType: nginx
     cloudlets: 16
     diskLimit: 20G
+onInstall:     
+- cmd[sqldb]: |-
+    MYSQL_PWD=${nodes.mysql5.password} mysql -uroot -e "CREATE DATABASE nc;"
+    MYSQL_PWD=${nodes.mysql5.password} mysql -uroot -e "CREATE USER 'nc'@'%' IDENTIFIED BY '${globals.DB_ADMIN_PASS}';"
+    MYSQL_PWD=${nodes.mysql5.password} mysql -uroot -e "GRANT ALL PRIVILEGES ON nc.* To 'nc'@'%' IDENTIFIED BY '${globals.DB_ADMIN_PASS}';"
