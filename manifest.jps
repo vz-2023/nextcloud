@@ -15,9 +15,9 @@ nodes:
     cloudlets: 16
     diskLimit: 50G
     env:
+      NEXTCLOUD_TRUSTED_DOMAINS: '${env.domain}'
       NEXTCLOUD_ADMIN_USER: ${globals.NEXTCLOUD_ADMIN_USER}
       NEXTCLOUD_ADMIN_PASSWORD: ${globals.NEXTCLOUD_ADMIN_PASSWORD}
-      NEXTCLOUD_TRUSTED_DOMAINS: ${globals.NEXTCLOUD_DOMAIN}
       MYSQL_PASSWORD: ${globals.DB_ADMIN_PASS}
       MYSQL_DATABASE: nc
       MYSQL_USER: nc
